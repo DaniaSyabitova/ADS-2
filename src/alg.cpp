@@ -10,7 +10,7 @@ double pown(double value, uint16_t n) {
   else if (n == 1)
     return value;
   else {
-    for (inr i = 1; i <= n; i++) {
+    for (int i = 1; i <= n; i++) {
       res = res * value;
     }
     return res;
