@@ -29,7 +29,7 @@ double calcItem(double x, uint16_t n) {
 double expn(double x, uint16_t count) {
   uint16_t slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog += calcItem(x, i);
+    slog = slog + calcItem(x, i);
   }
   return slog;
 }
@@ -37,7 +37,7 @@ double expn(double x, uint16_t count) {
 double sinn(double x, uint16_t count) {
   uint16_t slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog += pown(-1, i - 1) * calcItem(x, 2 * i - 1);
+    slog = slog + pown(-1, i - 1) * calcItem(x, 2 * i - 1);
   }
   return slog;
 }
@@ -45,7 +45,7 @@ double sinn(double x, uint16_t count) {
 double cosn(double x, uint16_t count) {
   uint16_t slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog += pown(-1, i - 1) * calcItem(x, 2 * i - 2);
+    slog = slog + pown(-1, i - 1) * calcItem(x, 2 * i - 2);
   }
   return slog;
 }
