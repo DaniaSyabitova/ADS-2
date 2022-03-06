@@ -25,33 +25,30 @@ uint64_t fact(uint16_t n) {
 }
 
 double calcItem(double x, uint16_t n) {
-  double res = pown (x, n) / fact (n);
+  double res = pown(x, n) / fact(n);
   return res;
 }
 
 double expn(double x, uint16_t count) {
   uint16_t slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog = calcItem (x, i);
-    count += slog;
+    slog += calcItem(x, i);
   }
-  return count;
+  return slog;
 }
 
 double sinn(double x, uint16_t count) {
   uint16_t slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog = pown (-1, i - 1) * calcItem (x, 2 * i - 1);
-    count += slog;
+    slog += pown(-1, i - 1) * calcItem(x, 2 * i - 1);
   }
-  return count;
+  return slog;
 }
 
 double cosn(double x, uint16_t count) {
   uint16_t slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog = pown (-1, i - 1) * calcItem (x, 2 * i - 2);
-    count += slog;
+    slog += pown(-1, i - 1) * calcItem(x, 2 * i - 2);
   }
-  return count;
+  return slog;
 }
