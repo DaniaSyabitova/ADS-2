@@ -30,7 +30,12 @@ double calcItem(double x, uint16_t n) {
 }
 
 double expn(double x, uint16_t count) {
-
+  uint16_t slog;
+  for (int i = 1; i <= count; i++) {
+    slog = calcItem (x, i);
+    count += slog;
+  }
+  return count;
 }
 
 double sinn(double x, uint16_t count) {
