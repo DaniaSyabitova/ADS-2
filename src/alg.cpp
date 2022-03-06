@@ -15,38 +15,39 @@ double pown(double value, uint16_t n) {
 }
 
 uint64_t fact(uint16_t n) {
-  uint16_t f = 1;
-  for (uint16_t i = 1; i <= n; i++) {
-    f = f * i;
-  }
-  return f;
+  if (n < 0)
+    return 0;
+  if (n == 0)
+    return 1;
+  else
+    return n * fact (n - 1);
 }
 
 double calcItem(double x, uint16_t n) {
-  double res = pown(x, n) / fact(n);
-  return res;
+  return (pown(x, n) / fact(n));
+  
 }
 
 double expn(double x, uint16_t count) {
-  uint16_t slog = 0;
-  for (uint16_t i = 0; i <= count; i++) {
-    slog = slog + calcItem(x, i);
+  double slog = 1;
+  for (uint16_t i = 1; i <= count; i++) {
+    slog += calcItem(x, i);
   }
   return slog;
 }
 
 double sinn(double x, uint16_t count) {
-  uint16_t slog = 0;
+  double slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog = slog + pown(-1, i - 1) * calcItem(x, 2 * i - 1);
+    slog += pown(-1, i - 1) * calcItem(x, 2 * i - 1);
   }
   return slog;
 }
 
 double cosn(double x, uint16_t count) {
-  uint16_t slog = 0;
+  double slog = 0;
   for (uint16_t i = 1; i <= count; i++) {
-    slog = slog + pown(-1, i - 1) * calcItem(x, 2 * i - 2);
+    slog += pown(-1, i - 1) * calcItem(x, 2 * i - 2);
   }
   return slog;
 }
